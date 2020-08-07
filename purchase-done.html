@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ALPS</title>
+</head>
+
+<body style='display: none;'>
+  <p id='msg'></p>
+  <button id="purcahse-finished">구매완료</button>
+</body>
+<script>
+  document.getElementById('purcahse-finished').addEventListener('click', function () {
+    window.close();
+  });
+  window.addEventListener('beforeunload', function () {
+    window.opener.location.reload();
+  })
+</script>
+
+</html>
