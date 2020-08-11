@@ -52,4 +52,4 @@ const Title = styled.h3<{ on: boolean }>`
   }
 `;
 
-export { SignModal };
+export default SignModal;

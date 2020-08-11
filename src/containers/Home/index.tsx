@@ -7,6 +7,8 @@ import SectionRoot from './units/SectionRoot';
 import { sections } from '~/containers/Home/constants';
 import { ThemeProvider } from 'styled-components';
 import { themes } from '../../constants/theme';
+import Footer from '../Layout/Footer';
+import Product from './sections/Product';
 
 export default React.memo(() => {
   const { parallaxController } = useController();
@@ -26,7 +28,8 @@ export default React.memo(() => {
           <Component />
         </SectionRoot>
       ))}
-
+      <Product />
+      <Footer />
       <Navi />
     </ScrollProvider>
   );

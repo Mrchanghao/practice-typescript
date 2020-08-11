@@ -18,15 +18,14 @@ type AppearAniProps = {
   [key: string]: any;
 };
 
-export const AppearAni: React.FC<AppearAniProps> = ({ delay, as, innerRef, on, direction, children, ...props }) => {
-  const [shown, setShow] = useState(false);
-
+export const AppearAni: React.FC<AppearAniProps> = ({ delay, on, as, innerRef, direction, children, ...props }) => {
+  const [show, setShow] = useState(false);
   useEffect(() => {
     if (on) setShow(true);
   }, [!!on]);
 
   return (
-    <AppearAniInner as={as || 'span'} show={shown} delay={(delay = delay || 0)} direction={direction || Direction.top} ref={innerRef} {...props}>
+    <AppearAniInner as={as || 'span'} show={show} delay={(delay = delay || 0)} direction={direction || Direction.top} ref={innerRef} {...props}>
       {children}
     </AppearAniInner>
   );
@@ -45,7 +44,7 @@ export const AppearAniIncPosition: React.FC<AppearAniProps> = ({ delay, on = tru
 
 const AppearAniInner = styled.span<{ show: boolean; delay: number; direction: Direction }>`
   transform: ${({ show, direction }) =>
-    (direction === Direction.left || direction === Direction.right ? 'translateX' : 'translateY') + '(' + (show ? '0' : `${direction === Direction.right ? '-' : ''}40`) + 'px'};
+    (direction === Direction.left || direction === Direction.right ? 'translateX' : 'translateY') + '(' + (show ? '0' : `${direction === Direction.right ? '-' : ''}40`) + 'px)'};
   opacity: ${({ show }) => (show ? 1 : 0)};
   transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 1s cubic-bezier(0.19, 1, 0.22, 1);
   transition-delay: ${({ delay }) => delay}ms;

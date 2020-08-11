@@ -3,14 +3,13 @@ import React, { useContext } from 'react';
 import { colors } from '~/constants/style';
 import { Parallax } from 'react-scroll-parallax';
 import { DeviceType, media } from '~/constants/theme';
-import { useIsMobile } from '../../../hooks/useIsMobile';
 
 const PartnerBanner: React.FC = () => {
   const theme = useContext(ThemeContext);
-  const isMobile = useIsMobile();
+  const isMobile = theme.type === DeviceType.mobile;
   return (
     <Wrapper>
-      <Parallax>
+      <Parallax className="box i1" y={[-25, 25]} disabled={isMobile}>
         <BoxTitleImg src={require('~/assets/img/partner_donga.png')} />
         <BoxDate>
           <span>2019.10.16</span>

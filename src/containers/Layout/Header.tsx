@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { AnchorA } from '~/components/ButtonA';
+import { sections as sectionInfoArr } from '~/containers/Home/constants';
 import { colors } from '~/constants/style';
 import { SectionCtx } from '../Home/ScrollContext';
-import { UserContext } from '../../context/user';
-import { tokenManager } from '../../domain/tokenManager';
+import SignModal from '../User/SignModal';
+import { UserCtx } from '~/context/user';
+import { tokenManager } from '~/domain/tokenManager';
 import { useIsMobile } from '~/hooks/useIsMobile';
-import { sections as sectionInfoArr } from '~/containers/Home/constants';
-import { SignModal } from '../User/SignModal';
 
 // export const SectionCtx = createContext<SectionCtxValue>(
 // { sections: [],
@@ -15,7 +15,7 @@ import { SignModal } from '../User/SignModal';
 //   setSingleSection: () => {} });
 
 export default () => {
-  const { userInfo, logout, signModalShown, setSignModalShown } = useContext(UserContext);
+  const { userInfo, logout, signModalShown, setSignModalShown } = useContext(UserCtx);
   const { sections } = useContext(SectionCtx);
   const isMobile = useIsMobile();
   const [shownMobileNotice, setShownMobileNotice] = useState(true);

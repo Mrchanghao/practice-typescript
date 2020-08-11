@@ -86,7 +86,7 @@ enum LogoutMessage {
   FAILURE_ALPS_LOGOUT = 'FAILURE_ALPS_LOGOUT',
 }
 
-export const UserContext = createContext<UserInfoContext>({
+export const UserCtx = createContext<UserInfoContext>({
   tokenInfo: {},
   userInfo: {},
   signModalShown: false,
@@ -164,5 +164,5 @@ export const UserProvider: React.FC = ({ children }) => {
     [userInfo.tokenInfo, userInfo.userInfo, signModalShown]
   );
 
-  return <UserContext.Provider value={userInfoMemo}>{children}</UserContext.Provider>;
+  return <UserCtx.Provider value={userInfoMemo}>{children}</UserCtx.Provider>;
 };

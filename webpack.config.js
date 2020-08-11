@@ -53,8 +53,10 @@ module.exports = {
     port: process.env.PORT || 9000,
     // host: '0.0.0.0',
     historyApiFallback: {
-      rewrites: [
-        // { from: /^\/purchase-done.html$/, to: '/purchase-done.html' },
+      rewrites: [{
+          from: /^\/purchase-done.html$/,
+          to: '/purchase-done.html'
+        },
         {
           from: /^.*$/g,
           to: '/index.html'
